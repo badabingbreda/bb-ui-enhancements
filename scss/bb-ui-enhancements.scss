@@ -1,51 +1,71 @@
-body.fl-builder-edit.matts-make-my-day {
+/**
+ * CSS BY Matt Eastwood
+ * ----------------------
+ */
+body.fl-builder-edit.bb-ui-enhancements {
 
     & .wp-editor-area {
+        /* Makes text editor monospace */
         font-family: "Courier New";
         font-size: 16px;
         line-height: 160% !important;
     }
 
-    .fl-col, .fl-col-content { outline: 2px dashed transparent; outline-offset: 0px; transition: all ease-in 0.2s; }
+    .fl-col, .fl-col-content { 
+        /* Show column outlines when hovering columns */
+        outline: 2px dashed transparent; outline-offset: 0px; transition: all ease-in 0.2s; 
+    }
 
-    .fl-col:hover { outline: 2px dashed #00A0D2; outline-offset: -6px; }
+    .fl-col:hover { 
+        /* Show column outlines when hovering columns */
+        outline: 2px dashed #00A0D2; outline-offset: -6px; 
+    }
 
-    .fl-col-group-nested .fl-col { outline:none; }
+    .fl-col-group-nested .fl-col { 
+        /* Show column outlines when hovering columns */
+        outline:none; 
+    }
 
-    .fl-col-group-nested .fl-col-content:hover { outline: 2px dotted #00A0D2; outline-offset: -6px; }
+    .fl-col-group-nested .fl-col-content:hover {
+        /* Show column outlines when hovering columns */ 
+        outline: 2px dotted #00A0D2; outline-offset: -6px; 
+    }
 
-    div.fl-builder-bar:hover ~ #page .fl-row-content-wrap,
-    div.fl-builder-bar:hover ~ #page .fl-row-bg-overlay .fl-row-content-wrap:after,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-row-content-wrap,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-row-bg-overlay .fl-row-content-wrap:after,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-content-wrap,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-bg-overlay .fl-row-content-wrap:after {
+        /* Show row/col outlines when hovering BB admin bar */
         outline: 2px dashed #5fb238;
         outline-offset: -4px;
     }
 
-    div.fl-builder-bar:hover ~ #page .fl-col,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-col,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col {
+        /* outline for rows */
         outline: 2px dashed #00A0D2;
         outline-offset: -8px;
     }
 
-    div.fl-builder-bar:hover ~ #page .fl-col-group-nested .fl-col,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-col-group-nested .fl-col,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col {
+        /* dotted outline for nested cols */
         outline-style: dotted;
     }
 
-    div.fl-builder-bar:hover ~ #page .fl-col-group-nested .fl-col-highlight,
-    div.fl-builder-bar:hover ~ #page .fl-col-highlight,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-col-group-nested .fl-col-highlight,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-col-highlight,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col-highlight,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight {
         outline-style: none; padding: 6px;
     } 
 
-    div.fl-builder-bar:hover ~ #page .fl-col-highlight .fl-col-content,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-col-highlight .fl-col-content,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight .fl-col-content { 
         background-color: rgba(0, 160, 210, 0.1); 
     }
 
-    div.fl-builder-bar:hover ~ #page .fl-col-has-cols,
+    div.fl-builder-bar:hover ~ div.fl-page .fl-col-has-cols,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-has-cols {
         padding: 5px; outline-color: rgba(0, 160, 210, 0.5);
     }
@@ -85,12 +105,13 @@ body.fl-builder-edit.matts-make-my-day {
         outline-offset: -2px; }
 
    
-    .fl-builder-edit .fl-module:hover .fl-module-overlay { 
+    .fl-module:hover .fl-module-overlay { 
         margin: 2px; 
     }
 
   
-    .fl-module-overlay:not(.fl-block-overlay-global), .fl-module-overlay:not(.fl-block-overlay-global) .fl-block-col-resize-handle,
+    .fl-module-overlay:not(.fl-block-overlay-global), 
+    .fl-module-overlay:not(.fl-block-overlay-global) .fl-block-col-resize-handle,
     .fl-inline-editor { 
         border: 2px solid #d2005f; 
     }

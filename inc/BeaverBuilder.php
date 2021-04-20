@@ -1,6 +1,14 @@
 <?php
-
-namespace MakeMyDay;
+/**
+ * Beaver Builder extension
+ *
+ * @package BBUIENhancements
+ * @since 1.0.0
+ * @author BadabingBreda
+ * @link http://www.badabing.nl
+ * @license GNU General Public License 2.0+
+ */
+namespace BBUIEnhancements;
 
 class BeaverBuilder {
 
@@ -9,42 +17,39 @@ class BeaverBuilder {
 
         add_filter( 'fl_builder_keyboard_shortcuts' , __CLASS__ . '::add_shortcuts' );
 
-        add_action( 'wp_enqueue_scripts' , __CLASS__ . '::outline_objects' );
+        add_action( 'wp_enqueue_scripts' , __CLASS__ . '::enhancement_scripts' );
 
     }
-
+    
     /**
-     * Create Builder Shortcut to highlight containers
+     * add_shortcuts
+     *
+     * @param  mixed $shortcuts
+     * @return void
      */
     public static function add_shortcuts( $shortcuts ) {
 
-        $shortcuts['outlineObjects'] = array(
-            'label' => __( 'Outline Objects'),
-            'keyCode' => 'mod+q' //shortcut is Ctrl+q or Cmd+q - Change this to anything that works best for you
+        $shortcuts['BBUIEnhancements'] = array(
+            'label' => __( 'UI Enhancements'),
+            'keyCode' => 'mod+e' //shortcut is Ctrl+e or Cmd+e - Change this to anything that works best for you
             );
     
         return $shortcuts;
 
     }
-
-    public static function outline_objects() {
+    
+    /**
+     * enhancement_scripts
+     *
+     * @return void
+     */
+    public static function enhancement_scripts() {
         // Check if Beaver Builder is active 
         if ( class_exists('FLBuilderModel') && \FLBuilderModel::is_builder_active() ) {
     
-        /**
-         * Enqueue your custom JavaScript file
-         *
-         *************************************
-         * See "shortcut-script.js" file below
-         *************************************
-         *
-         * Be sure to use the appropriate url path depending on if your 
-         * code is contained in a custom plugin or child theme.
-         *
-         */
-           wp_enqueue_script('outlineObjects', MAKEMYDAY_URL . 'js/make-my-day.js');
+           wp_enqueue_script('bb-ui-enhancements', BBUIENHANCEMENTS_URL . 'js/bb-ui-enhancements.js');
 
-           wp_enqueue_style('outlineObjects', MAKEMYDAY_URL . 'css/make-my-day.css', null, MAKEMYDAY_VERSION, 'all' );
+           wp_enqueue_style('bb-ui-enhancements', BBUIENHANCEMENTS_URL . 'css/bb-ui-enhancements.css', null, BBUIENHANCEMENTS_VERSION, 'all' );
         }
     }
 
