@@ -10,3 +10,8 @@ Add extra styling when editing Beaver Builder layouts. Hit CTRL+e or CMD+e to ac
 - Gives distinct colours to rows, columns and modules
 - Shows all columns when hovering BB admin bar
 - Shows all rows and columns when hovering "Responsive Editing" bar
+
+#### Version history
+
+1.0.1 Update Release Test
+1.0.0 First commit
