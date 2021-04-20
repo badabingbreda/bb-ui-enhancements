@@ -34,5 +34,6 @@ You *can* change the styling of the enhancements by adding CSS variables to your
 ---
 ## Version history
 
+1.1.1 Moved loading of bb-ui-enhancements.js to footer to ensure jQuery is loaded.
 1.1.0 Store Enhancement preference to local storage so it also starts that way on reload, adding css vars so custom colors and border width can be set easily.
 1.0.0 First commit
