@@ -116,6 +116,7 @@ class GithubUpdater {
 	        }
 	        // Set it to our property
 	        $this->github_response = $response;
+
 	        return $response;
 	    }
 
