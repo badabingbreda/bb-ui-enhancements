@@ -49,8 +49,13 @@ class BeaverBuilder {
     
            wp_enqueue_script('bb-ui-enhancements', BBUIENHANCEMENTS_URL . 'js/bb-ui-enhancements.js', null, BBUIENHANCEMENTS_VERSION , true );
 
+           $enhancement_settings = apply_filters( 'bb-ui-enhancements-settings' , array( 'pluginFolder' => BBUIENHANCEMENTS_URL , 'enhanceButton' => true  , 'xray' => false ) );
+
+           \wp_localize_script( 'bb-ui-enhancements' , 'bbuie' , $enhancement_settings );
+
            wp_enqueue_style('bb-ui-enhancements', BBUIENHANCEMENTS_URL . 'css/bb-ui-enhancements.css', null, BBUIENHANCEMENTS_VERSION, 'all' );
         }
     }
 
 }
+

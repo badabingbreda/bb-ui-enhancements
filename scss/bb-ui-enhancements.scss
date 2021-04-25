@@ -25,7 +25,44 @@ $nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
     --bbui-outline-width                    : 2px;
 }
 
- body.fl-builder-edit.bb-ui-enhancements {
+body.fl-builder-edit:not(.bb-ui-enhancements) {
+    .fl-builder-bar-title-icon img.xray {
+        display: none;
+    }
+
+    .fl-builder-ui-enhancements svg {
+        #rowsolid, #columnsolid, #modulesolid {
+            fill: none;
+        }
+    }
+}
+
+body.fl-builder-edit.bb-ui-enhancements {
+
+    .fl-builder-bar-title-icon img {
+        &.xray {
+            display: block;
+        }
+        &.default {
+            display: none;
+        }
+    }
+
+    .fl-builder-ui-enhancements svg {
+        #row,#column,#module, #module {
+            fill: none;
+        }
+        #rowsolid {
+            fill: var(--bbui-row-color);
+        }
+        #columnsolid {
+            fill: var(--bbui-column-color);
+        }
+        #modulesolid {
+            fill: var(--bbui-module-color);
+        }
+    }
+
 
     & .wp-editor-area {
         /* Makes text editor monospace */
@@ -34,7 +71,8 @@ $nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
         line-height: 160% !important;
     }
 
-    .fl-col, .fl-col-content { 
+    .fl-col, 
+    .fl-col-content { 
         /* Show column outlines when hovering columns */
         outline: var(--bbui-outline-width) dashed transparent; 
         outline-offset: 0px; 
@@ -58,71 +96,73 @@ $nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
         outline-offset: -6px; 
     }
 
-    div.fl-builder-bar:hover ~ div.fl-page .fl-row-content-wrap,
-    div.fl-builder-bar:hover ~ div.fl-page .fl-row-bg-overlay .fl-row-content-wrap:after,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-content-wrap,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-bg-overlay .fl-row-content-wrap:after {
-        /* Show row/col outlines when hovering BB admin bar */
-        outline: var(--bbui-outline-width) dashed var(--bbui-row-color);
-        outline-offset: -4px;
+    div.fl-builder-bar:hover ~ div .fl-builder-content,
+    div.fl-builder-bar:hover ~ header.fl-builder-content,
+    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content {
+
+        .fl-row-content-wrap,
+        .fl-row-bg-overlay .fl-row-content-wrap:after {
+            /* Show row/col outlines when hovering BB admin bar */
+            outline: var(--bbui-outline-width) dashed var(--bbui-row-color);
+            outline-offset: -4px;
+        }
+
+        .fl-col {
+            /* outline for rows */
+            outline: var(--bbui-outline-width) dashed var(--bbui-column-color);
+            outline-offset: -8px;
+        }
+
+        .fl-col-group-nested .fl-col {
+            /* dotted outline for nested cols */
+            outline-style: dotted;
+
+        }
+
+        .fl-col-group-nested .fl-col-highlight,
+        .fl-col-highlight {
+            outline-style: none;
+            padding: 6px;
+   
+        }
+
+        .fl-col-highlight .fl-col-content {
+            /* empty col highlight bgcolor */
+            background-color: var(--bbui-empty-col-highlight-bgcolor); 
+        }
+
+        .fl-col-has-cols {
+            /* faded outline for nested col parents */
+            padding: 5px;
+            outline-color: var(--bbui-nested-col-parent-border-color);
+
+        }
     }
 
-    div.fl-builder-bar:hover ~ div.fl-page .fl-col,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col {
-        /* outline for rows */
-        outline: var(--bbui-outline-width) dashed var(--bbui-column-color);
-        outline-offset: -8px;
-    }
+    .fl-col-group-nested {
 
-    div.fl-builder-bar:hover ~ div.fl-page .fl-col-group-nested .fl-col,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col {
-        /* dotted outline for nested cols */
-        outline-style: dotted;
-    }
-
-    div.fl-builder-bar:hover ~ div.fl-page .fl-col-group-nested .fl-col-highlight,
-    div.fl-builder-bar:hover ~ div.fl-page .fl-col-highlight,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col-highlight,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight {
-        outline-style: none;
-        padding: 6px;
-    } 
-
-    div.fl-builder-bar:hover ~ div.fl-page .fl-col-highlight .fl-col-content,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight .fl-col-content { 
-        /* empty col highlight bgcolor */
-        background-color: var(--bbui-empty-col-highlight-bgcolor); 
-    }
+        .fl-col-highlight-guide { 
+            border-style: none; 
+        }
+            
+        .fl-col-highlight .fl-col-content
+            { border-style: dotted !important; }
+          
+    
+        .fl-col { position: relative; }
+        .fl-col:hover .fl-col-content:before {
+            font-family: "dashicons";
+            content: '\f509';
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--bbui-column-color);
+            z-index: 10;
+        }
     
 
-    div.fl-builder-bar:hover ~ div.fl-page .fl-col-has-cols,
-    div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-has-cols {
-        /* faded outline for nested col parents */
-        padding: 5px;
-        outline-color: var(--bbui-nested-col-parent-border-color);
-    }
-
-    
-    .fl-col-group-nested .fl-col-highlight-guide { 
-        border-style: none; 
-    }
-     
-        
-    .fl-col-group-nested .fl-col-highlight .fl-col-content
-        { border-style: dotted !important; }
-      
-
-    .fl-col-group-nested .fl-col { position: relative; }
-    .fl-col-group-nested .fl-col:hover .fl-col-content:before {
-        font-family: "dashicons";
-        content: '\f509';
-        position: absolute;
-        bottom: 10px;
-        right: 15px;
-        font-weight: bold;
-        font-size: 1.1em;
-        color: var(--bbui-column-color);
-        z-index: 10;
     }
 
    
@@ -130,17 +170,20 @@ $nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
         outline: var(--bbui-outline-width) dashed transparent;
         transition: all ease-in 0.2s;
         outline-offset: 4px; 
+
+        &:hover {
+            outline: var(--bbui-outline-width) dashed var(--bbui-nested-col-parent-border-color);
+            outline-offset: -2px; 
+    
+        }
     }
 
-    .fl-col-has-cols:hover {
-        outline: var(--bbui-outline-width) dashed var(--bbui-nested-col-parent-border-color);
-        outline-offset: -2px; 
-    }
    
     .fl-module:hover .fl-module-overlay { 
         margin: 2px; 
     }
   
+
     .fl-module-overlay:not(.fl-block-overlay-global), 
     .fl-module-overlay:not(.fl-block-overlay-global) .fl-block-col-resize-handle,
     .fl-inline-editor { 

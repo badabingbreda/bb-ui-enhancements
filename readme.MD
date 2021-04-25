@@ -1,5 +1,5 @@
 # Beaver Builder UI Enhancements
-### Plugin by Matt Eastwood / Guy Barry / Didou Schol
+### Community Plugin by Matt Eastwood / Guy Barry / Didou Schol / Marleen Kiral
 ---
 
 Add extra styling when editing Beaver Builder layouts. Hit CTRL+e or CMD+e to activate/deactivate enhancements.
@@ -32,8 +32,44 @@ You *can* change the styling of the enhancements by adding CSS variables to your
 
 
 ---
+## disable Enhance button
+
+You can remove the enhance button from the toolbar if needed. Simply add a filter to your theme's functions.php
+
+    add_filter( 'bb-ui-enhancements-settings' , 'disable_enhance_button' , 10 , 1 );
+    /**
+    * disable_enhance_button
+    *
+    * @param  mixed $settings
+    * @return array
+    */
+    function disable_enhance_button( $settings ) {
+        $settings[ 'enhanceButton' ] = false;
+        return $settings; 
+    }
+
+
+---
+## Tested with the following themes
+
+BB UI Enhancements has been succesfully tested with the following popular (child-)themes:
+
+- Beaver Theme
+- Page Builder Framework
+- Astra
+- GeneratePress
+
+---
 ## Version history
 
-1.1.1 Moved loading of bb-ui-enhancements.js to footer to ensure jQuery is loaded.
-1.1.0 Store Enhancement preference to local storage so it also starts that way on reload, adding css vars so custom colors and border width can be set easily.
-1.0.0 First commit
+|Version|Changes|
+|---|---|
+|1.1.2|Added Enhance Button on Beaver Builder toolbar; tweaked CSS for theme compatability.|
+|1.1.1|Moved loading of bb-ui-enhancements.js to footer to ensure jQuery is loaded.|
+|1.1.0|Store Enhancement preference to local storage so it also starts that way on reload, adding css vars so custom colors and border width can be set easily.|
+|1.0.0|First commit.|
+
+
+---
+### Mandatory attribution:
+Icons made by [Freepik](https://www.freepik.com "Freepik") from [www.flaticon.com](https://www.flaticon.com/ "flaticon")

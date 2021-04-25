@@ -15,13 +15,39 @@
   --bbui-outline-width: 2px;
 }
 
+body.fl-builder-edit:not(.bb-ui-enhancements) .fl-builder-bar-title-icon img.xray {
+  display: none;
+}
+body.fl-builder-edit:not(.bb-ui-enhancements) .fl-builder-ui-enhancements svg #rowsolid, body.fl-builder-edit:not(.bb-ui-enhancements) .fl-builder-ui-enhancements svg #columnsolid, body.fl-builder-edit:not(.bb-ui-enhancements) .fl-builder-ui-enhancements svg #modulesolid {
+  fill: none;
+}
+
+body.fl-builder-edit.bb-ui-enhancements .fl-builder-bar-title-icon img.xray {
+  display: block;
+}
+body.fl-builder-edit.bb-ui-enhancements .fl-builder-bar-title-icon img.default {
+  display: none;
+}
+body.fl-builder-edit.bb-ui-enhancements .fl-builder-ui-enhancements svg #row, body.fl-builder-edit.bb-ui-enhancements .fl-builder-ui-enhancements svg #column, body.fl-builder-edit.bb-ui-enhancements .fl-builder-ui-enhancements svg #module, body.fl-builder-edit.bb-ui-enhancements .fl-builder-ui-enhancements svg #module {
+  fill: none;
+}
+body.fl-builder-edit.bb-ui-enhancements .fl-builder-ui-enhancements svg #rowsolid {
+  fill: var(--bbui-row-color);
+}
+body.fl-builder-edit.bb-ui-enhancements .fl-builder-ui-enhancements svg #columnsolid {
+  fill: var(--bbui-column-color);
+}
+body.fl-builder-edit.bb-ui-enhancements .fl-builder-ui-enhancements svg #modulesolid {
+  fill: var(--bbui-module-color);
+}
 body.fl-builder-edit.bb-ui-enhancements .wp-editor-area {
   /* Makes text editor monospace */
   font-family: "Courier New";
   font-size: 16px;
   line-height: 160% !important;
 }
-body.fl-builder-edit.bb-ui-enhancements .fl-col, body.fl-builder-edit.bb-ui-enhancements .fl-col-content {
+body.fl-builder-edit.bb-ui-enhancements .fl-col,
+body.fl-builder-edit.bb-ui-enhancements .fl-col-content {
   /* Show column outlines when hovering columns */
   outline: var(--bbui-outline-width) dashed transparent;
   outline-offset: 0px;
@@ -41,38 +67,46 @@ body.fl-builder-edit.bb-ui-enhancements .fl-col-group-nested .fl-col-content:hov
   outline: var(--bbui-outline-width) dotted var(--bbui-column-color);
   outline-offset: -6px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-row-content-wrap,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-row-bg-overlay .fl-row-content-wrap:after,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-row-content-wrap,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-row-bg-overlay .fl-row-content-wrap:after,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-row-content-wrap,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-row-bg-overlay .fl-row-content-wrap:after,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-content-wrap,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-bg-overlay .fl-row-content-wrap:after {
   /* Show row/col outlines when hovering BB admin bar */
   outline: var(--bbui-outline-width) dashed var(--bbui-row-color);
   outline-offset: -4px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-col,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col {
   /* outline for rows */
   outline: var(--bbui-outline-width) dashed var(--bbui-column-color);
   outline-offset: -8px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-col-group-nested .fl-col,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-group-nested .fl-col,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-group-nested .fl-col,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col {
   /* dotted outline for nested cols */
   outline-style: dotted;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-col-group-nested .fl-col-highlight,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-col-highlight,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-group-nested .fl-col-highlight,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-highlight,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-group-nested .fl-col-highlight,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-highlight,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col-highlight,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight {
   outline-style: none;
   padding: 6px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-col-highlight .fl-col-content,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-highlight .fl-col-content,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-highlight .fl-col-content,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight .fl-col-content {
   /* empty col highlight bgcolor */
   background-color: var(--bbui-empty-col-highlight-bgcolor);
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div.fl-page .fl-col-has-cols,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-has-cols,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-has-cols,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-has-cols {
   /* faded outline for nested col parents */
   padding: 5px;
