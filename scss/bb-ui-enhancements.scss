@@ -4,6 +4,7 @@ $row-color          : #5fb238;
 $row-color-hover    : #8ac171;
 $module-color       : #d2005f;
 $module-color-hover : #e05292;
+$module-bgcolor     : #e0529230;
 $empty-col-highlight-bgcolor: rgba(0, 160, 210, 0.1);
 $nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
 
@@ -20,9 +21,11 @@ $nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
     --bbui-column-color-hover               : #{$column-color-hover};
     --bbui-module-color                     : #{$module-color};
     --bbui-module-color-hover               : #{$module-color-hover};
+    --bbui-module-bgcolor                   : #{$module-bgcolor};
     --bbui-empty-col-highlight-bgcolor      : #{$empty-col-highlight-bgcolor};
     --bbui-nested-col-parent-border-color   : #{$nested-col-parent-border-color};
     --bbui-outline-width                    : 2px;
+    --bbui-module-hover-opacity             : .4;
 }
 
 body.fl-builder-edit:not(.bb-ui-enhancements) {
@@ -82,7 +85,7 @@ body.fl-builder-edit.bb-ui-enhancements {
     .fl-col:hover { 
         /* Show column outlines when hovering columns */
         outline: var(--bbui-outline-width) dashed var(--bbui-column-color);
-        outline-offset: -6px; 
+        outline-offset: -4px; 
     }
 
     .fl-col-group-nested .fl-col { 
@@ -96,9 +99,35 @@ body.fl-builder-edit.bb-ui-enhancements {
         outline-offset: -6px; 
     }
 
+    .fl-module-content {
+        transition: opacity ease-in .2s;
+    }
+
     div.fl-builder-bar:hover ~ div .fl-builder-content,
     div.fl-builder-bar:hover ~ header.fl-builder-content,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content {
+
+        .fl-module {
+            position: relative;
+            &:after {
+                /* colored overlay for modules*/
+                content: " ";
+                position: absolute;
+                background-color: var(--bbui-module-bgcolor);
+                width: calc(100% - 24px);
+                height: calc(100% - 4px);
+                top: 12px;
+                left: 12px;
+                /* outline for modules */
+                outline: 2px dashed var(--bbui-module-color);
+                outline-offset: 0px;
+            }
+        }
+
+        .fl-module-content {
+            /* cloaks module contents */
+            opacity: var(--bbui-module-hover-opacity);
+        }
 
         .fl-row-content-wrap,
         .fl-row-bg-overlay .fl-row-content-wrap:after {
@@ -178,12 +207,10 @@ body.fl-builder-edit.bb-ui-enhancements {
         }
     }
 
-   
     .fl-module:hover .fl-module-overlay { 
         margin: 2px; 
     }
   
-
     .fl-module-overlay:not(.fl-block-overlay-global), 
     .fl-module-overlay:not(.fl-block-overlay-global) .fl-block-col-resize-handle,
     .fl-inline-editor { 

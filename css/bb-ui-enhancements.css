@@ -10,9 +10,11 @@
   --bbui-column-color-hover: #00A0D2;
   --bbui-module-color: #d2005f;
   --bbui-module-color-hover: #e05292;
+  --bbui-module-bgcolor: #e0529230;
   --bbui-empty-col-highlight-bgcolor: rgba(0, 160, 210, 0.1);
   --bbui-nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
   --bbui-outline-width: 2px;
+  --bbui-module-hover-opacity: .4;
 }
 
 body.fl-builder-edit:not(.bb-ui-enhancements) .fl-builder-bar-title-icon img.xray {
@@ -56,7 +58,7 @@ body.fl-builder-edit.bb-ui-enhancements .fl-col-content {
 body.fl-builder-edit.bb-ui-enhancements .fl-col:hover {
   /* Show column outlines when hovering columns */
   outline: var(--bbui-outline-width) dashed var(--bbui-column-color);
-  outline-offset: -6px;
+  outline-offset: -4px;
 }
 body.fl-builder-edit.bb-ui-enhancements .fl-col-group-nested .fl-col {
   /* Show column outlines when hovering columns */
@@ -66,6 +68,35 @@ body.fl-builder-edit.bb-ui-enhancements .fl-col-group-nested .fl-col-content:hov
   /* Show column outlines when hovering columns */
   outline: var(--bbui-outline-width) dotted var(--bbui-column-color);
   outline-offset: -6px;
+}
+body.fl-builder-edit.bb-ui-enhancements .fl-module-content {
+  transition: opacity ease-in 0.2s;
+}
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-module,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-module,
+body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-module {
+  position: relative;
+}
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-module:after,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-module:after,
+body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-module:after {
+  /* colored overlay for modules*/
+  content: " ";
+  position: absolute;
+  background-color: var(--bbui-module-bgcolor);
+  width: calc(100% - 24px);
+  height: calc(100% - 4px);
+  top: 12px;
+  left: 12px;
+  /* outline for modules */
+  outline: 2px dashed var(--bbui-module-color);
+  outline-offset: 0px;
+}
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-module-content,
+body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-module-content,
+body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-module-content {
+  /* cloaks module contents */
+  opacity: var(--bbui-module-hover-opacity);
 }
 body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-row-content-wrap,
 body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-row-bg-overlay .fl-row-content-wrap:after,

@@ -28,6 +28,7 @@ You *can* change the styling of the enhancements by adding CSS variables to your
         --bbui-empty-col-highlight-bgcolor      : rgba(0, 160, 210, 0.1);
         --bbui-nested-col-parent-border-color   : rgba(0, 160, 210, 0.5);
         --bbui-outline-width                    : 2px;
+        --bbui-module-hover-opacity             : .4;
     }
 
 
@@ -64,6 +65,7 @@ BB UI Enhancements has been succesfully tested with the following popular (child
 
 |Version|Changes|
 |---|---|
+|1.1.3|Added module outline on admin-bar hover. Added --bbui-module-hover-opacity css variable to allow control over opacity|
 |1.1.2|Added Enhance Button on Beaver Builder toolbar; tweaked CSS for theme compatability.|
 |1.1.1|Moved loading of bb-ui-enhancements.js to footer to ensure jQuery is loaded.|
 |1.1.0|Store Enhancement preference to local storage so it also starts that way on reload, adding css vars so custom colors and border width can be set easily.|
