@@ -60,10 +60,7 @@
 
     }
 
-    let addEnhanceTimeout = null, 
-        currentloop = 0,
-        retries = 10;
-
+    // Add Enhance Button if notifications toggle exists
     function tryAddingEnhanceButton() {
       // test if this element has already been created by builder
       if ( document.querySelector('#fl-builder-toggle-notifications') !== null ) {
@@ -71,16 +68,12 @@
         if (bbuie.xray ) addBeaverXray();
         return;
       }
-      // increment loop to try again later
-      currentloop++;
-      // reset the timer
-      addEnhanceTimeout = setTimeout( tryAddingEnhanceButton , 200 );
     }
 
     $(document).ready( function() {
       if (window.localStorage.getItem( 'bb-ui-enhancements' )) $('body').addClass('bb-ui-enhancements');
-      // timer start try adding enhancebutton
-      addEnhanceTimeout = setTimeout( tryAddingEnhanceButton , 200 );
+      // use FLBuilder addHook to add Enhance Button after UI is done creating
+      FLBuilder.addHook( 'didInitUI' , tryAddingEnhanceButton );
 
     });
 
