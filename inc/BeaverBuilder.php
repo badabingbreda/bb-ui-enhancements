@@ -47,7 +47,7 @@ class BeaverBuilder {
         // Check if Beaver Builder is active 
         if ( class_exists('FLBuilderModel') && \FLBuilderModel::is_builder_active() ) {
     
-           wp_enqueue_script('bb-ui-enhancements', BBUIENHANCEMENTS_URL . 'js/bb-ui-enhancements.js', null, BBUIENHANCEMENTS_VERSION , true );
+           wp_enqueue_script('bb-ui-enhancements', BBUIENHANCEMENTS_URL . 'js/bb-ui-enhancements.js', array( 'query' ), BBUIENHANCEMENTS_VERSION );
 
            $enhancement_settings = apply_filters( 'bb-ui-enhancements-settings' , array( 'pluginFolder' => BBUIENHANCEMENTS_URL , 'enhanceButton' => true  , 'xray' => false ) );
 
