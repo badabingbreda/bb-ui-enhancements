@@ -65,6 +65,7 @@ BB UI Enhancements has been succesfully tested with the following popular (child
 
 |Version|Changes|
 |---|---|
+|1.1.5|Dependencies removed, not needed|
 |1.1.4|Dependencies added for loading js-script, added hook to load after BB UI has finished init.|
 |1.1.3|Added module outline on admin-bar hover. Added --bbui-module-hover-opacity css variable to allow control over opacity|
 |1.1.2|Added Enhance Button on Beaver Builder toolbar; tweaked CSS for theme compatability.|
