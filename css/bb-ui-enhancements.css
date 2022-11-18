@@ -1,16 +1,15 @@
-@charset "UTF-8";
 /**
  * CSS BY Matt Eastwood
  * ----------------------
  */
-:root {
+ :root {
   --bbui-row-color: #5fb238;
   --bbui-row-color-hover: #8ac171;
   --bbui-column-color: #00A0D2;
   --bbui-column-color-hover: #00A0D2;
   --bbui-module-color: #d2005f;
   --bbui-module-color-hover: #e05292;
-  --bbui-module-bgcolor: #e0529230;
+  --bbui-module-bgcolor: rgba(224, 82, 146, 0.1882352941);
   --bbui-empty-col-highlight-bgcolor: rgba(0, 160, 210, 0.1);
   --bbui-nested-col-parent-border-color: rgba(0, 160, 210, 0.5);
   --bbui-outline-width: 2px;
@@ -72,13 +71,11 @@ body.fl-builder-edit.bb-ui-enhancements .fl-col-group-nested .fl-col-content:hov
 body.fl-builder-edit.bb-ui-enhancements .fl-module-content {
   transition: opacity ease-in 0.2s;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-module,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-module,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-module, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-module,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-module {
   position: relative;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-module:after,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-module:after,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-module:after, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-module:after,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-module:after {
   /* colored overlay for modules*/
   content: " ";
@@ -92,52 +89,45 @@ body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover 
   outline: 2px dashed var(--bbui-module-color);
   outline-offset: 0px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-module-content,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-module-content,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-module-content, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-module-content,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-module-content {
   /* cloaks module contents */
   opacity: var(--bbui-module-hover-opacity);
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-row-content-wrap,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-row-bg-overlay .fl-row-content-wrap:after,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-row-content-wrap,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-row-bg-overlay .fl-row-content-wrap:after,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-row-content-wrap,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-row-bg-overlay .fl-row-content-wrap:after, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-row-content-wrap,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-row-bg-overlay .fl-row-content-wrap:after,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-content-wrap,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-row-bg-overlay .fl-row-content-wrap:after {
   /* Show row/col outlines when hovering BB admin bar */
   outline: var(--bbui-outline-width) dashed var(--bbui-row-color);
   outline-offset: -4px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-col, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-col,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col {
   /* outline for rows */
   outline: var(--bbui-outline-width) dashed var(--bbui-column-color);
   outline-offset: -8px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-group-nested .fl-col,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-group-nested .fl-col,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-col-group-nested .fl-col, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-col-group-nested .fl-col,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col {
   /* dotted outline for nested cols */
   outline-style: dotted;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-group-nested .fl-col-highlight,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-highlight,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-group-nested .fl-col-highlight,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-highlight,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-col-group-nested .fl-col-highlight,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-col-highlight, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-col-group-nested .fl-col-highlight,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-col-highlight,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-group-nested .fl-col-highlight,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight {
   outline-style: none;
   padding: 6px;
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-highlight .fl-col-content,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-highlight .fl-col-content,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-col-highlight .fl-col-content, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-col-highlight .fl-col-content,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-highlight .fl-col-content {
   /* empty col highlight bgcolor */
   background-color: var(--bbui-empty-col-highlight-bgcolor);
 }
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ div .fl-builder-content .fl-col-has-cols,
-body.fl-builder-edit.bb-ui-enhancements div.fl-builder-bar:hover ~ header.fl-builder-content .fl-col-has-cols,
+body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover div .fl-builder-content .fl-col-has-cols, body.fl-builder-edit.bb-ui-enhancements.bb-ui-enhancements-hover header .fl-builder-content .fl-col-has-cols,
 body.fl-builder-edit.bb-ui-enhancements div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content .fl-col-has-cols {
   /* faded outline for nested col parents */
   padding: 5px;
@@ -154,7 +144,7 @@ body.fl-builder-edit.bb-ui-enhancements .fl-col-group-nested .fl-col {
 }
 body.fl-builder-edit.bb-ui-enhancements .fl-col-group-nested .fl-col:hover .fl-col-content:before {
   font-family: "dashicons";
-  content: "";
+  content: "\f509";
   position: absolute;
   bottom: 10px;
   right: 15px;

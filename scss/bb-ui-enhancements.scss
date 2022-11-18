@@ -103,8 +103,8 @@ body.fl-builder-edit.bb-ui-enhancements {
         transition: opacity ease-in .2s;
     }
 
-    div.fl-builder-bar:hover ~ div .fl-builder-content,
-    div.fl-builder-bar:hover ~ header.fl-builder-content,
+    &.bb-ui-enhancements-hover div .fl-builder-content,
+    &.bb-ui-enhancements-hover header .fl-builder-content,
     div.fl-responsive-preview-message:hover ~ .fl-responsive-preview-content {
 
         .fl-module {

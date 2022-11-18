@@ -10,7 +10,7 @@
  * Plugin Name: BB UI Enhancements
  * Plugin URI:  https://www.badabing.nl
  * Description: Enhance the Beaver Builder UI by distinguishing modules/cols/cols/rows with different colors, identify nested columns and more.
- * Version:     1.1.5
+ * Version:     1.2.0
  * Author:      Badabingbreda
  * Author URI:  https://www.badabing.nl
  * Text Domain: textdomain
@@ -21,7 +21,7 @@ namespace BBUIEnhancements;
 use BBUIEnhancements\BeaverBuilder;
 use BBUIEnhancements\GithubUpdater;
 
-define( 'BBUIENHANCEMENTS_VERSION', '1.1.5' );
+define( 'BBUIENHANCEMENTS_VERSION', '1.2.0' );
 define( 'BBUIENHANCEMENTS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'BBUIENHANCEMENTS_FILE', __FILE__ );
 define( 'BBUIENHANCEMENTS_URL', plugins_url( '/', __FILE__ ) );
@@ -37,7 +37,7 @@ $updater->set_username( 'badabingbreda' );
 $updater->set_repository( 'bb-ui-enhancements' );
 $updater->set_settings( array(
 			'requires'			=> '4.6',
-			'tested'			=> '5.7.0',
+			'tested'			=> '6.1.1',
 			'rating'			=> '100.0',
 			'num_ratings'		=> '10',
 			'downloaded'		=> '10',
